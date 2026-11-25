@@ -1,6 +1,6 @@
 # Tokens
 
-Los tokens son variables CSS `--dn-*` definidas en `resources/css/tokens.css`: claro en `:root`, oscuro en `.dark` (la clase va en `<html>`). Una app nunca escribe un color, radio o medida literal: usa el token, directo o a través de un puente.
+Los tokens son variables CSS `--dn-*` definidas en `resources/css/tokens.css`: claro en `:root`, oscuro en `.dark` (la clase va en `<html>`). Las clases `.dn-theme-light` y `.dn-theme-dark` fuerzan un tema dentro de una zona, sin importar el de la página (por ejemplo, una vista previa). Una app nunca escribe un color, radio o medida literal: usa el token, directo o a través de un puente.
 
 El prefijo es `dn-` (DN Systems) y no el nombre del sistema, para que un cambio de nombre no toque el código.
 

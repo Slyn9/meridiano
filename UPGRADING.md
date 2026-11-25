@@ -1,5 +1,9 @@
 # Actualizar entre versiones
 
+## De 0.2 a 0.3
+
+Sin cambios de valores ni de nombres: solo se agregan recetas, componentes Blade, íconos, `AccentPalette` y dos tokens. El paquete ahora declara `illuminate/support` e `illuminate/view` (^12 o ^13) y registra un proveedor de servicios que Laravel descubre solo. Una app React (ContaPE) no necesita cambiar nada.
+
 ## De 0.1 a 0.2
 
 La 0.2 cambia los valores de los tokens: toda app que la adopte cambia de aspecto sin tocar sus pantallas. Antes de desplegar:

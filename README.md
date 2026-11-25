@@ -8,9 +8,14 @@ El sistema de diseño de DN Systems. Una sola fuente de colores, tipografía, ra
 | --- | --- | --- |
 | `resources/css/tokens.css` | Variables `--dn-*`, tema claro (`:root`) y oscuro (`.dark`). La única fuente de valores. | Todas las apps |
 | `resources/css/bridges/shadcn.css` | Hace que las variables de shadcn/ui (`--background`, `--primary`…) lean los tokens. | Apps con shadcn/ui |
+| `resources/css/bridges/air-system.css` | Hace que las variables propias de Air-System (`--accent`, `--bg-page`…) lean los tokens. | Air-System |
+| `resources/css/recipes.css` | Clases `.dn-*`: la apariencia de cada componente, en CSS plano (sirve con o sin Tailwind). | Apps Blade |
+| `resources/views/components/` | Componentes Blade `<x-dn::…>` y la paginación de Livewire `dn::pagination.livewire`. | Apps Blade/Livewire |
+| `resources/icons/` | Íconos lucide incluidos (`<x-dn::icon>`), con su licencia ISC en `licenses/`. | Apps Blade |
+| `src/AccentPalette.php` | Deriva y valida contra WCAG AA la paleta de acento de una empresa a partir de un solo color. | Apps con tema por empresa |
 | `docs/` | Documentación del sistema, en español: fundamentos, tokens, shell, componentes, tablas y gobernanza. | Quien diseña o programa una pantalla |
 
-Las recetas CSS, los componentes Blade y los componentes React se agregan en versiones siguientes (ver `CHANGELOG.md`).
+Los componentes React se agregan en la fase 3 (ver `CHANGELOG.md`).
 
 ## Instalación
 
@@ -23,14 +28,16 @@ El paquete se sirve desde su repositorio de GitHub (no se publica en Packagist n
 ```
 
 ```bash
-composer require slyn9/meridiano:^0.2
+composer require slyn9/meridiano:^0.3
 ```
 
 En el CSS de entrada de la app (Vite), antes de cualquier regla propia:
 
 ```css
 @import '../../vendor/slyn9/meridiano/resources/css/tokens.css';
-@import '../../vendor/slyn9/meridiano/resources/css/bridges/shadcn.css'; /* solo apps shadcn/ui */
+@import '../../vendor/slyn9/meridiano/resources/css/bridges/shadcn.css';     /* apps shadcn/ui */
+@import '../../vendor/slyn9/meridiano/resources/css/bridges/air-system.css'; /* Air-System, después de su global-theme.css */
+@import '../../vendor/slyn9/meridiano/resources/css/recipes.css';            /* apps Blade */
 ```
 
 En el servidor, `composer install` debe correr **antes** de `npm run build`: el CSS se lee desde `vendor/`.
@@ -54,10 +61,11 @@ Mientras la versión sea `0.x`, un cambio de versión menor puede romper compati
 ## Pruebas
 
 ```bash
-npm test
+npm test                                 # contraste WCAG 2.1 de cada par documentado (Node 18+, sin dependencias)
+composer install && vendor/bin/phpunit   # AccentPalette e íconos (PHPUnit, solo desarrollo del paquete)
 ```
 
-Mide el contraste WCAG 2.1 de cada par de texto/fondo documentado en `docs/tokens.md`, en claro y en oscuro (Node 18+, sin dependencias). Un valor que baje de 4,5:1 (texto) o 3:1 (bordes de control y foco) hace fallar la prueba.
+Un valor que baje de 4,5:1 (texto) o 3:1 (bordes de control y foco) hace fallar `npm test`.
 
 ## Licencia
 

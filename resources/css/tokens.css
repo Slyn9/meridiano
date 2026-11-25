@@ -17,6 +17,8 @@
  * entre tarjeta y fondo es mínima.
  */
 
+/* `.dn-theme-light` / `.dn-theme-dark` fuerzan un tema dentro de una zona (p. ej. una vista previa). */
+.dn-theme-light,
 :root {
     /* Superficies */
     --dn-canvas: #F2F4F8;
@@ -88,6 +90,7 @@
     --dn-font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
 }
 
+.dn-theme-dark,
 .dark {
     --dn-canvas: #10141B;
     --dn-surface: #181E27;

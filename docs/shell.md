@@ -27,6 +27,10 @@ El shell es el marco común de toda pantalla autenticada: barra superior a todo 
 | **Migas** | Solo cuando hay jerarquía real; bajo 768 px colapsan a «‹ último nivel». |
 | **Pie** | Opcional y mínimo (`text-xs`, `--dn-text-muted`). |
 
+## Recetas del shell (Blade)
+
+`.dn-topbar` (con `.dn-topbar-brand`, `.dn-brand-mark`, `.dn-topbar-title`, `.dn-topbar-actions`, `.dn-icon-btn`), `.dn-sidebar` con `data-open="true|false"` (`.dn-sidebar-body`, `.dn-nav`, `.dn-nav-section`, `.dn-nav-item` con `aria-current="page"`, `.dn-nav-children`, `.dn-sidebar-footer`, `.dn-user`), `.dn-backdrop`, `.dn-main` y `.dn-content`. El orden en el HTML es barra superior, fondo oscurecido, menú y contenido (el contenido es hermano posterior del menú). En la versión Blade, desde 1024 px el menú abierto empuja el contenido y por debajo se superpone con fondo oscurecido; sin `data-open` (antes de que cargue el JS) se ve abierto en escritorio para no parpadear.
+
 ## Pantallas sin shell
 
 Acceso (inicio de sesión) y páginas de error usan un marco mínimo: fondo `--dn-canvas`, una tarjeta centrada con la marca y el contenido, sin menú.

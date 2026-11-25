@@ -22,4 +22,30 @@ Reglas visuales y de comportamiento de cada componente común. Valen igual para 
 | **Carga** | Un esqueleto con la forma real del contenido, nunca un spinner a pantalla completa. En una acción puntual, el spinner va dentro del botón. |
 | **Error** | Distingue no autorizado, no encontrado y falla del servidor, cada uno con texto claro y una acción; nunca un mensaje técnico crudo. |
 
-Los componentes de lista de detalle, filtro segmentado, línea de tiempo, flujo de pasos, accesos rápidos y fila expandible llegan en la fase 3 del plan, con su versión React y Blade.
+## Versión Blade (`<x-dn::…>`)
+
+Desde la 0.3.0 el paquete registra sus vistas bajo el espacio `dn` (`MeridianoServiceProvider`, descubierto solo por Laravel). Cada componente aplica las recetas de `resources/css/recipes.css`, que la app importa en su CSS. Los atributos que no son props (`wire:model`, `wire:click`, `x-on:…`, `aria-*`, `class`) llegan al elemento real, así que funcionan con Livewire y Alpine.
+
+| Componente | Props | Ejemplo |
+| --- | --- | --- |
+| `icon` | `name` (ícono lucide de `resources/icons/icons.txt`), `size` (16), `label` (si no es decorativo) | `<x-dn::icon name="plus" />` |
+| `button` | `variant` (secondary · primary · ghost · danger · danger-subtle), `size` (`sm`), `href`, `icon`, `iconOnly` | `<x-dn::button variant="primary" icon="plus" :href="route('clients.create')">Nuevo</x-dn::button>` |
+| `card` | `title`, `subtitle`, `icon`, `flush` (sin padding, para tablas); slot `actions` | `<x-dn::card title="Sedes" icon="map-pin">…</x-dn::card>` |
+| `badge` | `tone` (neutral · success · warning · danger · info · primary), `icon`, `solid` | `<x-dn::badge tone="success">Activo</x-dn::badge>` |
+| `alert` | `tone`, `title` | `<x-dn::alert tone="warning" title="…">…</x-dn::alert>` |
+| `page-heading` | `title`, `description`, `back` (URL de «volver»), `backLabel`; slot = acciones | `<x-dn::page-heading title="Clientes">…</x-dn::page-heading>` |
+| `field` | `label`, `for`, `hint`, `error`; slot = el control | `<x-dn::field label="Nombre" for="name"><x-dn::input id="name" wire:model="name" /></x-dn::field>` |
+| `input` · `select` | `invalid` | `<x-dn::input wire:model.live="search" />` |
+| `search` | `label` (nombre accesible) | `<x-dn::search wire:model.live.debounce.300ms="search" label="Buscar clientes" />` |
+| `segmented` · `segmented-item` | `label` · `pressed` | `<x-dn::segmented-item wire:click="$set('status', 'active')" :pressed="$status === 'active'">Activos</x-dn::segmented-item>` |
+| `sort-header` | `column`, `sortBy`, `sortDir`, `thClass` | `<x-dn::sort-header column="name" :sort-by="$sortBy" :sort-dir="$sortDir" wire:click="sort('name')">Cliente</x-dn::sort-header>` |
+| `detail-list` · `detail-item` | `stacked` · `label` | `<x-dn::detail-item label="Correo">…</x-dn::detail-item>` |
+| `empty-state` | `title`, `hint`, `icon`; slot = acción | `<x-dn::empty-state title="Sin clientes" />` |
+
+**Paginación de Livewire:** `{{ $items->links('dn::pagination.livewire') }}` dentro del componente; usa `previousPage`/`nextPage`/`gotoPage` y siempre muestra el conteo.
+
+**Íconos:** solo los listados en `resources/icons/icons.txt` (trazos de lucide, licencia ISC en `licenses/`). Un nombre desconocido lanza una excepción a propósito. Para sumar uno: agregarlo a `icons.txt` y correr `node scripts/build-icons.mjs <ruta a node_modules/lucide-react>`.
+
+**Acento por empresa:** `Slyn9\Meridiano\AccentPalette::problem($hex)` dice por qué un color no sirve (o `null`); `AccentPalette::from($hex)->css()` devuelve los 7 tokens de acento derivados para claro y oscuro, todos con contraste AA garantizado (lo prueba un barrido de más de 100 colores). Se inyecta en un `<style>` después del CSS de la app.
+
+Los componentes de línea de tiempo, flujo de pasos, accesos rápidos y fila expandible llegan en la fase 3 del plan, con su versión React y Blade.

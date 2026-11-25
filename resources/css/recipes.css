@@ -59,6 +59,14 @@
     font-variant-numeric: tabular-nums;
 }
 
+.dn-pre-wrap {
+    margin: 0;
+    color: var(--dn-text);
+    font-size: 14px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+
 .dn-stack {
     display: flex;
     flex-direction: column;
@@ -158,6 +166,30 @@
 .dn-icon-btn:focus-visible {
     outline: 2px solid var(--dn-focus);
     outline-offset: 2px;
+}
+
+.dn-has-count {
+    position: relative;
+}
+
+/* Contador sobre un botón de ícono (notificaciones sin leer). */
+.dn-count-badge {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 16px;
+    height: 16px;
+    padding: 0 4px;
+    color: var(--dn-on-danger);
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 1;
+    background: var(--dn-danger);
+    border-radius: 9999px;
+    pointer-events: none;
 }
 
 @media (min-width: 768px) {
@@ -327,6 +359,13 @@
 /* Desde 1024 px el menú abierto empuja el contenido; por debajo se superpone
    (con fondo oscurecido) y se cierra al elegir un destino. */
 @media (min-width: 1024px) {
+    /* Sin `data-open` (antes de que el JS decida) el menú se ve abierto en
+       escritorio, para no parpadear al cargar. */
+    .dn-sidebar:not([data-open]) {
+        transform: translateX(0);
+    }
+
+    .dn-sidebar:not([data-open]) ~ .dn-main,
     .dn-sidebar[data-open='true'] ~ .dn-main {
         margin-left: var(--dn-sidebar-width);
     }
@@ -346,6 +385,85 @@
     .dn-content {
         padding: 24px 32px;
     }
+}
+
+.dn-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 12px 16px;
+    color: var(--dn-text-muted);
+    font-size: 12px;
+    border-top: 1px solid var(--dn-divider);
+}
+
+.dn-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 8px;
+    color: var(--dn-text);
+    font: inherit;
+    text-align: left;
+    background: transparent;
+    border: 0;
+    border-radius: var(--dn-radius-control);
+    cursor: pointer;
+}
+
+.dn-user:hover {
+    background: var(--dn-neutral-subtle);
+}
+
+.dn-user:focus-visible {
+    outline: 2px solid var(--dn-focus);
+    outline-offset: -2px;
+}
+
+.dn-user-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.dn-user-name,
+.dn-user-email {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.dn-user-name {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.dn-user-email {
+    color: var(--dn-text-muted);
+    font-size: 12px;
+}
+
+.dn-popover-anchor {
+    position: relative;
+}
+
+.dn-popover {
+    position: absolute;
+    z-index: 50;
+}
+
+.dn-popover--below-end {
+    top: calc(100% + 6px);
+    right: 0;
+}
+
+.dn-popover--above {
+    right: 0;
+    bottom: calc(100% + 6px);
+    left: 0;
 }
 
 /* ── Encabezado de página ─────────────────────────────────────────── */
@@ -524,6 +642,7 @@
 
 .dn-field {
     display: grid;
+    align-content: start;
     gap: 6px;
     min-width: 0;
 }
@@ -610,6 +729,134 @@
 
 .dn-search > .dn-input {
     padding-left: 34px;
+}
+
+/* Grilla de formulario: 1 columna en teléfono, 2 desde 768 px. */
+.dn-form-grid {
+    display: grid;
+    gap: 16px;
+}
+
+@media (min-width: 768px) {
+    .dn-form-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.dn-narrow {
+    max-width: 720px;
+}
+
+.dn-grow {
+    flex: 1;
+    min-width: 0;
+}
+
+.dn-color-swatch {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    padding: 2px;
+    background: var(--dn-surface);
+    border: 1px solid var(--dn-control-border);
+    border-radius: var(--dn-radius-control);
+    cursor: pointer;
+}
+
+.dn-color-swatch:focus-visible {
+    outline: 2px solid var(--dn-focus);
+    outline-offset: 2px;
+}
+
+/* ── Alerta ───────────────────────────────────────────────────────── */
+
+.dn-alert {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+    padding: 12px 16px;
+    color: var(--dn-text);
+    font-size: 14px;
+    background: var(--dn-neutral-subtle);
+    border-radius: var(--dn-radius-card);
+}
+
+.dn-alert > .dn-icon {
+    margin-top: 2px;
+}
+
+.dn-alert-title {
+    margin: 0 0 2px;
+    font-weight: 600;
+}
+
+.dn-alert p {
+    margin: 0;
+}
+
+.dn-alert--info {
+    background: var(--dn-info-subtle);
+}
+
+.dn-alert--info > .dn-icon,
+.dn-alert--info .dn-alert-title {
+    color: var(--dn-info-text);
+}
+
+.dn-alert--success {
+    background: var(--dn-success-subtle);
+}
+
+.dn-alert--success > .dn-icon,
+.dn-alert--success .dn-alert-title {
+    color: var(--dn-success-text);
+}
+
+.dn-alert--warning {
+    background: var(--dn-warning-subtle);
+}
+
+.dn-alert--warning > .dn-icon,
+.dn-alert--warning .dn-alert-title {
+    color: var(--dn-warning-text);
+}
+
+.dn-alert--danger {
+    background: var(--dn-danger-subtle);
+}
+
+.dn-alert--danger > .dn-icon,
+.dn-alert--danger .dn-alert-title {
+    color: var(--dn-danger-text);
+}
+
+/* ── Vista previa de tema ─────────────────────────────────────────── */
+
+.dn-preview-grid {
+    display: grid;
+    gap: 12px;
+}
+
+@media (min-width: 768px) {
+    .dn-preview-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.dn-preview {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 16px;
+    color: var(--dn-text);
+    background: var(--dn-surface);
+    border: 1px solid var(--dn-divider);
+    border-radius: var(--dn-radius-card);
+}
+
+.dn-preview .dn-nav-item {
+    width: 100%;
 }
 
 /* ── Insignia de estado ───────────────────────────────────────────── */
@@ -811,6 +1058,31 @@
     font-family: var(--dn-font-mono);
     font-variant-numeric: tabular-nums;
     text-align: right;
+}
+
+.dn-cell-main {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+}
+
+.dn-cell-title {
+    font-weight: 500;
+}
+
+.dn-cell-sub {
+    margin-top: 1px;
+    color: var(--dn-text-muted);
+    font-size: 12px;
+}
+
+.dn-meta-line {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--dn-text-muted);
+    font-size: 13px;
 }
 
 .dn-sort {

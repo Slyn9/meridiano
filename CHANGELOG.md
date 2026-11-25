@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.3.0 — 2026-11-25
+
+El paquete pasa a tener componentes para apps Blade/Livewire. Sin cambios de valores para quien ya usa la 0.2.
+
+- `resources/css/recipes.css`: clases `.dn-*` de shell (barra superior, menú lateral con ítem activo y punto, usuario, pie), encabezado de página, tarjeta, botón, campos, búsqueda, insignia, alerta, contador, filtro segmentado, pestañas, barra de tabla, tabla con encabezados ordenables, estado vacío, paginación, detalle en dos columnas, avatar, menú desplegable, grilla de formulario y vista previa de tema. CSS plano, solo tokens, estados con atributos ARIA.
+- Componentes Blade anónimos `<x-dn::…>` (icon, button, card, badge, alert, page-heading, field, input, select, search, segmented, segmented-item, sort-header, detail-list, detail-item, empty-state) y la paginación `dn::pagination.livewire`, registrados por `MeridianoServiceProvider` (autodescubierto).
+- 69 íconos lucide incluidos (`resources/icons/lucide.php`, generado por `scripts/build-icons.mjs`; licencia ISC en `licenses/lucide-ISC.txt`).
+- `Slyn9\Meridiano\AccentPalette`: deriva los 7 tokens de acento de un color de empresa para claro y oscuro y valida WCAG AA; probado con PHPUnit (dependencia solo de desarrollo del paquete) con un barrido de más de 100 colores.
+- `bridges/air-system.css`: las variables de Air-System leen los tokens; separa `--accent` (texto) de `--accent-fill` (relleno).
+- Tokens nuevos: `--dn-shadow-popover`, `--dn-overlay`; clases `.dn-theme-light`/`.dn-theme-dark` para forzar un tema en una zona.
+
 ## 0.2.0 — 2026-11-25
 
 La paleta propia de Meridiano. Cambia el aspecto de toda app que lo use: ver `UPGRADING.md`.
