@@ -10,6 +10,7 @@ El prefijo es `dn-` (DN Systems) y no el nombre del sistema, para que un cambio 
 | --- | --- |
 | `--dn-canvas` | Fondo de la aplicación, detrás de todo |
 | `--dn-surface` | Tarjetas, popovers, diálogos y menú lateral: un nivel encima del fondo |
+| `--dn-surface-border` | Borde de una tarjeta: transparente en claro (la separa su sombra), visible en oscuro |
 | `--dn-shell` | Barra superior de la aplicación |
 | `--dn-neutral-subtle` | Relleno neutro: encabezado de tabla, botón secundario, chip |
 | `--dn-divider` | Separadores y bordes decorativos (sin requisito de contraste) |
@@ -57,7 +58,7 @@ Cuatro familias (`success`, `warning`, `danger`, `info`), cada una con cuatro to
 | `--dn-radius-control` | Botones, campos, selects, popovers |
 | `--dn-radius-card` | Tarjetas |
 | `--dn-radius-dialog` | Diálogos y paneles laterales |
-| `--dn-shadow-card` | Sombra de una tarjeta |
+| `--dn-shadow-card` | Sombra de una tarjeta: mínima en claro, ninguna en oscuro |
 | `--dn-shell-height` | Alto de la barra superior |
 | `--dn-sidebar-width` / `--dn-sidebar-width-icon` | Ancho del menú lateral, expandido y plegado a íconos |
 | `--dn-tab-indicator` | Grosor de la barra bajo la pestaña activa |

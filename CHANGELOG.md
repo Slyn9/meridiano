@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.2.0 — 2026-11-25
+
+La paleta propia de Meridiano. Cambia el aspecto de toda app que lo use: ver `UPGRADING.md`.
+
+- Paleta nueva en claro y oscuro (azul de DN Systems, fondo gris con sesgo azul, oscuro azul-negro). Los 7 pares heredados bajo AA quedan resueltos: la prueba pasa 30 pares por tema y la lista de fallos conocidos queda vacía.
+- En oscuro, el relleno del botón primario (`--dn-primary-fill`, con texto blanco) se separa del azul de texto (`--dn-primary`); los rellenos de estado llevan texto oscuro.
+- Nuevo `--dn-surface-border`: la tarjeta no tiene borde en claro (la separa su sombra) y sí en oscuro.
+- Tarjeta con radio de 12 px y sombra mínima en claro; diálogo con radio de 16 px; barra de pestaña activa de 3 px.
+- Puente shadcn: nuevas variables `--card-border`, `--shell` y `--link` (azul de texto, porque `--primary` es el relleno del botón).
+- Documentación del sistema en `docs/` (fundamentos, shell, componentes, tablas y gobernanza), en español.
+
 ## 0.1.0 — 2026-11-25
 
 Primera versión: la base, sin cambio visible para quien la adopta.

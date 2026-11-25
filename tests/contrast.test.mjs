@@ -46,6 +46,8 @@ const pairs = [
     ['text', 'canvas', 4.5, 'texto principal sobre el fondo'],
     ['text', 'surface', 4.5, 'texto principal sobre una tarjeta'],
     ['text', 'neutral-subtle', 4.5, 'texto sobre relleno neutro'],
+    ['text', 'shell', 4.5, 'texto de la barra superior'],
+    ['text-muted', 'shell', 4.5, 'texto secundario de la barra superior'],
     ['text-muted', 'canvas', 4.5, 'texto secundario sobre el fondo'],
     ['text-muted', 'surface', 4.5, 'texto secundario sobre una tarjeta'],
     ['text-muted', 'neutral-subtle', 4.5, 'encabezado de tabla'],
@@ -73,18 +75,10 @@ const pairs = [
     ['focus', 'canvas', 3, 'anillo de foco sobre el fondo'],
 ];
 
-// Pares que los valores heredados de ContaPE (0.1.0) no cumplen. Se listan para
-// que la prueba documente el estado real en vez de esconderlo; la paleta 0.2.0
-// debe dejar esta lista vacía.
-const knownFailures = new Set([
-    'claro: warning-text / warning-subtle', // 4,4999:1, se redondea a 4,50 pero no llega
-    'claro: control-border / surface', // 2,56:1
-    'claro: control-border / canvas', // 2,45:1
-    'oscuro: primary / surface', // 3,10:1: el azul de enlaces es el mismo del botón
-    'oscuro: primary / canvas', // 3,39:1
-    'oscuro: control-border / surface', // 1,66:1
-    'oscuro: control-border / canvas', // 1,82:1
-]);
+// Pares que la paleta no cumple. Debe quedar vacío: un par nuevo que no llega
+// al mínimo se corrige en el token, no se agrega aquí. (La 0.1.0, con los
+// valores heredados de ContaPE, tenía 7; la 0.2.0 los resolvió.)
+const knownFailures = new Set([]);
 
 for (const [theme, tokens] of Object.entries(themes)) {
     for (const [fg, bg, min, use] of pairs) {

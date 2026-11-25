@@ -10,54 +10,57 @@
  * contraste en tests/contrast.test.mjs: un cambio de valor que baje de AA
  * hace fallar `npm test`.
  *
- * Versión 0.1.0: los valores son los que ContaPE usaba antes de adoptar el
- * paquete, para que adoptarlo no cambie nada visible. La paleta propia de
- * Meridiano llega en 0.2.0.
+ * Paleta propia desde 0.2.0: el azul nace del acento de DN Systems (matiz
+ * ≈228°), el fondo es un gris con sesgo azul y el oscuro es azul-negro.
+ * En claro, la tarjeta se separa del fondo por su sombra (sin borde); en
+ * oscuro, por su borde (sin sombra), porque ahí la diferencia de luminancia
+ * entre tarjeta y fondo es mínima.
  */
 
 :root {
     /* Superficies */
-    --dn-canvas: hsl(210, 40%, 98%);
-    --dn-surface: hsl(0, 0%, 100%);
-    --dn-shell: hsl(210, 40%, 98%);
-    --dn-neutral-subtle: hsl(210, 40%, 96.1%);
-    --dn-divider: hsl(214, 31.8%, 91.4%);
-    --dn-control-border: hsl(215, 20.2%, 65.1%);
+    --dn-canvas: #F2F4F8;
+    --dn-surface: #FFFFFF;
+    --dn-surface-border: transparent;
+    --dn-shell: #FFFFFF;
+    --dn-neutral-subtle: #EBEEF4;
+    --dn-divider: #E1E5EC;
+    --dn-control-border: #7D879A;
 
     /* Texto */
-    --dn-text: hsl(221, 39.3%, 11%);
-    --dn-text-muted: hsl(219, 15.7%, 34.9%);
+    --dn-text: #18212F;
+    --dn-text-muted: #536075;
 
     /* Acento. `primary` es el azul de texto (enlaces, pestaña activa);
        `primary-fill` es el relleno de botones, con `on-primary-fill` encima. */
-    --dn-primary: hsl(220, 72.4%, 49.8%);
-    --dn-primary-fill: hsl(220, 72.4%, 49.8%);
-    --dn-primary-fill-hover: hsl(220, 72.4%, 44.8%);
-    --dn-on-primary-fill: hsl(0, 0%, 100%);
-    --dn-primary-subtle: hsl(221, 100%, 96.9%);
-    --dn-primary-strong: hsl(219, 73.4%, 39.8%);
-    --dn-focus: hsl(220, 72.4%, 49.8%);
+    --dn-primary: #2447D6;
+    --dn-primary-fill: #2447D6;
+    --dn-primary-fill-hover: #1C38AD;
+    --dn-on-primary-fill: #FFFFFF;
+    --dn-primary-subtle: #E8EEFF;
+    --dn-primary-strong: #1A35A3;
+    --dn-focus: #2447D6;
 
     /* Estados: sólido + texto encima, tenue + texto encima */
-    --dn-success: hsl(142, 71.8%, 29.2%);
-    --dn-on-success: hsl(0, 0%, 100%);
-    --dn-success-subtle: hsl(141, 84.2%, 92.5%);
-    --dn-success-text: hsl(142, 71.8%, 29.2%);
+    --dn-success: #17773A;
+    --dn-on-success: #FFFFFF;
+    --dn-success-subtle: #E3F5E8;
+    --dn-success-text: #145F2F;
 
-    --dn-warning: hsl(43, 96.4%, 56.3%);
-    --dn-on-warning: hsl(221, 39.3%, 11%);
-    --dn-warning-subtle: hsl(48, 96.5%, 88.8%);
-    --dn-warning-text: hsl(26, 90.5%, 37.1%);
+    --dn-warning: #F2B33D;
+    --dn-on-warning: #18212F;
+    --dn-warning-subtle: #FFF2D6;
+    --dn-warning-text: #8A4500;
 
-    --dn-danger: hsl(0, 72.2%, 50.6%);
-    --dn-on-danger: hsl(0, 0%, 100%);
-    --dn-danger-subtle: hsl(0, 93.3%, 94.1%);
-    --dn-danger-text: hsl(0, 73.7%, 41.8%);
+    --dn-danger: #C42B2B;
+    --dn-on-danger: #FFFFFF;
+    --dn-danger-subtle: #FDE7E7;
+    --dn-danger-text: #A31F1F;
 
-    --dn-info: hsl(202, 96.1%, 30.2%);
-    --dn-on-info: hsl(0, 0%, 100%);
-    --dn-info-subtle: hsl(204, 93.8%, 93.7%);
-    --dn-info-text: hsl(202, 96.1%, 30.2%);
+    --dn-info: #0B6A86;
+    --dn-on-info: #FFFFFF;
+    --dn-info-subtle: #E0F2F7;
+    --dn-info-text: #0A5970;
 
     /* Paleta categórica de gráficos */
     --dn-chart-1: hsl(220, 85.8%, 58.6%);
@@ -68,15 +71,15 @@
 
     /* Forma */
     --dn-radius-control: 0.5rem;
-    --dn-radius-card: 0.5rem;
-    --dn-radius-dialog: 0.75rem;
-    --dn-shadow-card: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --dn-radius-card: 0.75rem;
+    --dn-radius-dialog: 1rem;
+    --dn-shadow-card: 0 1px 2px 0 rgb(24 33 47 / 0.06), 0 1px 3px 0 rgb(24 33 47 / 0.04);
 
     /* Medidas del shell */
     --dn-shell-height: 3.5rem;
     --dn-sidebar-width: 16rem;
     --dn-sidebar-width-icon: 3rem;
-    --dn-tab-indicator: 2px;
+    --dn-tab-indicator: 3px;
 
     /* Tipografía (las apps cargan las fuentes) */
     --dn-font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -84,47 +87,50 @@
 }
 
 .dark {
-    --dn-canvas: hsl(223, 48.8%, 8.4%);
-    --dn-surface: hsl(221, 43.8%, 12.5%);
-    --dn-shell: hsl(223, 48.8%, 8.4%);
-    --dn-neutral-subtle: hsl(221, 43.8%, 15%);
-    --dn-divider: hsl(219, 29.8%, 22.4%);
-    --dn-control-border: hsl(219, 27.1%, 27.5%);
+    --dn-canvas: #10141B;
+    --dn-surface: #181E27;
+    --dn-surface-border: #2A3240;
+    --dn-shell: #141920;
+    --dn-neutral-subtle: #222936;
+    --dn-divider: #2A3240;
+    --dn-control-border: #737E91;
 
-    --dn-text: hsl(210, 40%, 98%);
-    --dn-text-muted: hsl(215, 20.2%, 65.1%);
+    --dn-text: #EDF0F5;
+    --dn-text-muted: #A2ACBC;
 
-    --dn-primary: hsl(220, 72.4%, 49.8%);
-    --dn-primary-fill: hsl(220, 72.4%, 49.8%);
-    --dn-primary-fill-hover: hsl(220, 72.4%, 44.8%);
-    --dn-on-primary-fill: hsl(0, 0%, 100%);
-    --dn-primary-subtle: hsl(219, 29.8%, 22.4%);
-    --dn-primary-strong: hsl(210, 40%, 98%);
-    --dn-focus: hsl(220, 85.8%, 58.6%);
+    --dn-primary: #6A86FF;
+    --dn-primary-fill: #3B5BDB;
+    --dn-primary-fill-hover: #2F4FD0;
+    --dn-on-primary-fill: #FFFFFF;
+    --dn-primary-subtle: #1F2B52;
+    --dn-primary-strong: #B9C8FF;
+    --dn-focus: #7590FF;
 
-    --dn-success: hsl(142, 71.8%, 29.2%);
-    --dn-on-success: hsl(0, 0%, 100%);
-    --dn-success-subtle: hsl(142, 40%, 18%);
-    --dn-success-text: hsl(142, 70.6%, 70%);
+    --dn-success: #3FB86A;
+    --dn-on-success: #18212F;
+    --dn-success-subtle: #15301F;
+    --dn-success-text: #7FDC9F;
 
-    --dn-warning: hsl(43, 96.4%, 56.3%);
-    --dn-on-warning: hsl(221, 39.3%, 11%);
-    --dn-warning-subtle: hsl(43, 50%, 20%);
-    --dn-warning-text: hsl(43, 96.4%, 75%);
+    --dn-warning: #F2B33D;
+    --dn-on-warning: #18212F;
+    --dn-warning-subtle: #3A2C10;
+    --dn-warning-text: #F6C66A;
 
-    --dn-danger: hsl(0, 72.2%, 50.6%);
-    --dn-on-danger: hsl(0, 0%, 100%);
-    --dn-danger-subtle: hsl(0, 40%, 20%);
-    --dn-danger-text: hsl(0, 84.2%, 80%);
+    --dn-danger: #F0676B;
+    --dn-on-danger: #18212F;
+    --dn-danger-subtle: #3A1618;
+    --dn-danger-text: #FF9C9C;
 
-    --dn-info: hsl(199, 88.7%, 48.4%);
-    --dn-on-info: hsl(221, 39.3%, 11%);
-    --dn-info-subtle: hsl(202, 50%, 20%);
-    --dn-info-text: hsl(199, 88.7%, 75%);
+    --dn-info: #2BA6C9;
+    --dn-on-info: #18212F;
+    --dn-info-subtle: #0F2E38;
+    --dn-info-text: #7FD3EA;
 
     --dn-chart-1: hsl(220, 85.8%, 58.6%);
     --dn-chart-2: hsl(173, 75.5%, 32%);
     --dn-chart-3: hsl(258, 89.5%, 66.3%);
     --dn-chart-4: hsl(25, 90.4%, 44.9%);
     --dn-chart-5: hsl(330, 81.2%, 60.4%);
+
+    --dn-shadow-card: 0 0 #0000;
 }

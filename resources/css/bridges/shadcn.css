@@ -18,6 +18,13 @@
 
     --card: var(--dn-surface);
     --card-foreground: var(--dn-text);
+    --card-border: var(--dn-surface-border);
+
+    /* No existen en shadcn: barra superior y azul de texto (enlaces, pestaña
+       activa). `--primary` es el relleno del botón; en oscuro no sirve como
+       texto, por eso el texto azul usa `--link`. */
+    --shell: var(--dn-shell);
+    --link: var(--dn-primary);
 
     --popover: var(--dn-surface);
     --popover-foreground: var(--dn-text);

@@ -8,7 +8,7 @@ El sistema de diseño de DN Systems. Una sola fuente de colores, tipografía, ra
 | --- | --- | --- |
 | `resources/css/tokens.css` | Variables `--dn-*`, tema claro (`:root`) y oscuro (`.dark`). La única fuente de valores. | Todas las apps |
 | `resources/css/bridges/shadcn.css` | Hace que las variables de shadcn/ui (`--background`, `--primary`…) lean los tokens. | Apps con shadcn/ui |
-| `docs/` | Documentación del sistema, en español. | Quien diseña o programa una pantalla |
+| `docs/` | Documentación del sistema, en español: fundamentos, tokens, shell, componentes, tablas y gobernanza. | Quien diseña o programa una pantalla |
 
 Las recetas CSS, los componentes Blade y los componentes React se agregan en versiones siguientes (ver `CHANGELOG.md`).
 
@@ -23,7 +23,7 @@ El paquete se sirve desde su repositorio de GitHub (no se publica en Packagist n
 ```
 
 ```bash
-composer require slyn9/meridiano:^0.1
+composer require slyn9/meridiano:^0.2
 ```
 
 En el CSS de entrada de la app (Vite), antes de cualquier regla propia:
