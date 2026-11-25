@@ -31,6 +31,13 @@ for (const name of [...new Set(names)].sort()) {
     entries.push(`    '${name}' => '${markup.replace(/\\/g, '\\\\').replace(/'/g, "\\'")}',`);
 }
 
+// Misma lista para React (resources/js/react/icons.ts): un solo origen para los dos stacks.
+const tsEntries = entries.map((line) => line.replace(/^    '([^']+)' => '(.*)',$/, (_, name, markup) => `    '${name}': '${markup}',`));
+writeFileSync(
+    new URL('resources/js/react/icons.ts', root),
+    `// Generado por scripts/build-icons.mjs desde lucide-react ${version} (ISC, ver licenses/lucide-ISC.txt).\n// No editar a mano: agregar el nombre a resources/icons/icons.txt y volver a generar.\n\nexport const icons = {\n${tsEntries.join('\n')}\n} as const;\n\nexport type DnIconName = keyof typeof icons;\n`,
+);
+
 writeFileSync(
     new URL('resources/icons/lucide.php', root),
     `<?php\n\n// Generado por scripts/build-icons.mjs desde lucide-react ${version} (ISC, ver licenses/lucide-ISC.txt).\n// No editar a mano: agregar el nombre a icons.txt y volver a generar.\n\nreturn [\n${entries.join('\n')}\n];\n`,

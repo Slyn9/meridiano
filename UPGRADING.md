@@ -1,5 +1,9 @@
 # Actualizar entre versiones
 
+## De 0.3 a 0.4
+
+Sin cambios de valores ni de nombres: se agregan componentes. Una app Blade no necesita nada. Una app React que quiera usar los componentes React agrega el alias `@meridiano` en `vite.config.js` y `tsconfig.json` e importa `recipes.css` (ver `docs/componentes.md`). Las recetas no van en una capa de Tailwind: pisan una utilidad aplicada al mismo elemento.
+
 ## De 0.2 a 0.3
 
 Sin cambios de valores ni de nombres: solo se agregan recetas, componentes Blade, íconos, `AccentPalette` y dos tokens. El paquete ahora declara `illuminate/support` e `illuminate/view` (^12 o ^13) y registra un proveedor de servicios que Laravel descubre solo. Una app React (ContaPE) no necesita cambiar nada.

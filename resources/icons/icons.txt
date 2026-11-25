@@ -67,3 +67,6 @@ circle-check
 triangle-alert
 circle-x
 info
+check
+chevrons-right
+history

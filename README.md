@@ -11,11 +11,12 @@ El sistema de diseño de DN Systems. Una sola fuente de colores, tipografía, ra
 | `resources/css/bridges/air-system.css` | Hace que las variables propias de Air-System (`--accent`, `--bg-page`…) lean los tokens. | Air-System |
 | `resources/css/recipes.css` | Clases `.dn-*`: la apariencia de cada componente, en CSS plano (sirve con o sin Tailwind). | Apps Blade |
 | `resources/views/components/` | Componentes Blade `<x-dn::…>` y la paginación de Livewire `dn::pagination.livewire`. | Apps Blade/Livewire |
-| `resources/icons/` | Íconos lucide incluidos (`<x-dn::icon>`), con su licencia ISC en `licenses/`. | Apps Blade |
+| `resources/js/react/` | Componentes React (línea de tiempo, flujo de pasos, accesos rápidos, fila expandible, ícono), compilados por el Vite de la app vía el alias `@meridiano`. | Apps React |
+| `resources/icons/` | Íconos lucide incluidos (`<x-dn::icon>`, `<DnIcon>`), con su licencia ISC en `licenses/`. | Todas las apps |
 | `src/AccentPalette.php` | Deriva y valida contra WCAG AA la paleta de acento de una empresa a partir de un solo color. | Apps con tema por empresa |
 | `docs/` | Documentación del sistema, en español: fundamentos, tokens, shell, componentes, tablas y gobernanza. | Quien diseña o programa una pantalla |
 
-Los componentes React se agregan en la fase 3 (ver `CHANGELOG.md`).
+Configuración del alias React: ver `docs/componentes.md`.
 
 ## Instalación
 
@@ -28,7 +29,7 @@ El paquete se sirve desde su repositorio de GitHub (no se publica en Packagist n
 ```
 
 ```bash
-composer require slyn9/meridiano:^0.3
+composer require slyn9/meridiano:^0.4
 ```
 
 En el CSS de entrada de la app (Vite), antes de cualquier regla propia:
@@ -37,7 +38,7 @@ En el CSS de entrada de la app (Vite), antes de cualquier regla propia:
 @import '../../vendor/slyn9/meridiano/resources/css/tokens.css';
 @import '../../vendor/slyn9/meridiano/resources/css/bridges/shadcn.css';     /* apps shadcn/ui */
 @import '../../vendor/slyn9/meridiano/resources/css/bridges/air-system.css'; /* Air-System, después de su global-theme.css */
-@import '../../vendor/slyn9/meridiano/resources/css/recipes.css';            /* apps Blade */
+@import '../../vendor/slyn9/meridiano/resources/css/recipes.css';            /* todas: los componentes Blade y React la usan */
 ```
 
 En el servidor, `composer install` debe correr **antes** de `npm run build`: el CSS se lee desde `vendor/`.

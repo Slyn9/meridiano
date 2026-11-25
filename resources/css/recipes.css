@@ -1323,3 +1323,309 @@ th[aria-sort] .dn-sort .dn-icon {
     margin: 4px 0;
     background: var(--dn-divider);
 }
+
+/* ── Línea de tiempo ──────────────────────────────────────────────── */
+
+.dn-timeline {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.dn-timeline-item {
+    position: relative;
+    padding: 0 0 16px 24px;
+}
+
+/* Trazo vertical que une un punto con el siguiente. */
+.dn-timeline-item::before {
+    position: absolute;
+    top: 16px;
+    bottom: 0;
+    left: 5px;
+    width: 2px;
+    background: var(--dn-divider);
+    content: '';
+}
+
+.dn-timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.dn-timeline-item:last-child::before {
+    display: none;
+}
+
+.dn-timeline-dot {
+    position: absolute;
+    top: 4px;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    background: var(--dn-control-border);
+    border: 2px solid var(--dn-surface);
+    border-radius: 9999px;
+    box-shadow: 0 0 0 1px var(--dn-divider);
+}
+
+.dn-timeline-item--primary .dn-timeline-dot {
+    background: var(--dn-primary-fill);
+}
+
+.dn-timeline-item--success .dn-timeline-dot {
+    background: var(--dn-success);
+}
+
+.dn-timeline-item--warning .dn-timeline-dot {
+    background: var(--dn-warning);
+}
+
+.dn-timeline-item--danger .dn-timeline-dot {
+    background: var(--dn-danger);
+}
+
+.dn-timeline-item--info .dn-timeline-dot {
+    background: var(--dn-info);
+}
+
+.dn-timeline-title {
+    margin: 0;
+    color: var(--dn-text);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.dn-timeline-meta {
+    margin: 2px 0 0;
+    color: var(--dn-text-muted);
+    font-size: 12px;
+}
+
+.dn-timeline-body {
+    margin: 4px 0 0;
+    color: var(--dn-text-muted);
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+/* ── Flujo de pasos ───────────────────────────────────────────────── */
+
+.dn-process {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.dn-process-step {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+}
+
+.dn-process-marker {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    color: var(--dn-text-muted);
+    font-size: 12px;
+    font-weight: 600;
+    background: var(--dn-neutral-subtle);
+    border: 1px solid var(--dn-divider);
+    border-radius: 9999px;
+}
+
+.dn-process-step[data-state='done'] .dn-process-marker {
+    color: var(--dn-success-text);
+    background: var(--dn-success-subtle);
+    border-color: transparent;
+}
+
+.dn-process-step[data-state='current'] .dn-process-marker {
+    color: var(--dn-on-primary-fill);
+    background: var(--dn-primary-fill);
+    border-color: transparent;
+}
+
+.dn-process-text {
+    min-width: 0;
+}
+
+.dn-process-label {
+    display: block;
+    color: var(--dn-text-muted);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+a.dn-process-label:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+a.dn-process-label:focus-visible {
+    outline: 2px solid var(--dn-focus);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+.dn-process-step[data-state='done'] .dn-process-label {
+    color: var(--dn-text);
+}
+
+.dn-process-step[data-state='current'] .dn-process-label {
+    color: var(--dn-primary-strong);
+    font-weight: 600;
+}
+
+.dn-process-meta {
+    display: block;
+    color: var(--dn-text-muted);
+    font-size: 12px;
+}
+
+.dn-process-sep {
+    display: none;
+    flex-shrink: 0;
+    color: var(--dn-text-muted);
+}
+
+/* Horizontal desde 640 px (salvo la variante vertical, para columnas angostas). */
+@media (min-width: 640px) {
+    .dn-process:not(.dn-process--vertical) {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px 12px;
+    }
+
+    .dn-process:not(.dn-process--vertical) .dn-process-sep {
+        display: inline-block;
+    }
+}
+
+/* ── Accesos rápidos ──────────────────────────────────────────────── */
+
+.dn-quick-links {
+    display: grid;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+@media (min-width: 768px) {
+    .dn-quick-links--2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .dn-quick-links--3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.dn-quick-link {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    height: 100%;
+    padding: 10px;
+    color: var(--dn-text);
+    text-decoration: none;
+    border-radius: var(--dn-radius-control);
+}
+
+.dn-quick-link:hover {
+    background: var(--dn-neutral-subtle);
+}
+
+.dn-quick-link:focus-visible {
+    outline: 2px solid var(--dn-focus);
+    outline-offset: 0;
+}
+
+.dn-quick-link-icon {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    color: var(--dn-primary-strong);
+    background: var(--dn-primary-subtle);
+    border-radius: var(--dn-radius-control);
+}
+
+.dn-quick-link-text {
+    min-width: 0;
+}
+
+.dn-quick-link-title {
+    display: block;
+    color: var(--dn-primary);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.dn-quick-link-desc {
+    display: block;
+    margin-top: 2px;
+    color: var(--dn-text-muted);
+    font-size: 13px;
+}
+
+/* ── Fila expandible ──────────────────────────────────────────────── */
+
+.dn-expand-cell,
+.dn-table td.dn-expand-cell {
+    width: 40px;
+    padding-right: 0;
+}
+
+.dn-expand-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    color: var(--dn-text-muted);
+    background: transparent;
+    border: 0;
+    border-radius: var(--dn-radius-control);
+    cursor: pointer;
+}
+
+.dn-expand-btn:hover {
+    color: var(--dn-text);
+    background: var(--dn-neutral-subtle);
+}
+
+.dn-expand-btn:focus-visible {
+    outline: 2px solid var(--dn-focus);
+    outline-offset: 0;
+}
+
+.dn-expand-btn .dn-icon {
+    transition: transform 150ms ease;
+}
+
+.dn-expand-btn[aria-expanded='true'] .dn-icon {
+    transform: rotate(90deg);
+}
+
+.dn-row-detail > td {
+    padding: 12px 16px 16px 52px;
+    background: color-mix(in srgb, var(--dn-neutral-subtle) 45%, transparent);
+}
+
+.dn-row-detail[hidden] {
+    display: none;
+}

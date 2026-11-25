@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.0 — 2026-11-25
+
+Cuatro componentes nuevos, en Blade y en React, y la primera vez que una app React usa componentes del paquete. Sin cambios de valores.
+
+- Línea de tiempo (`<x-dn::timeline>`/`timeline-item`, `Timeline`/`TimelineItem`), flujo de pasos (`<x-dn::process-flow>`, `ProcessFlow`), accesos rápidos (`<x-dn::quick-links>`/`quick-link`, `QuickLinkList`/`QuickLink`) y fila expandible (`<x-dn::expandable-row>`, `ExpandableRow`), con sus recetas en `recipes.css`. Estado anunciado en texto (no solo color), operables con teclado.
+- `resources/js/react/`: componentes React compilados por el Vite de la app con el alias `@meridiano` (no se publican en npm), y `DnIcon`.
+- `resources/js/react/icons.ts` lo genera el mismo `scripts/build-icons.mjs` que `lucide.php`; una prueba exige que sean idénticos. Íconos nuevos: check, chevrons-right, history (72 en total).
+
 ## 0.3.0 — 2026-11-25
 
 El paquete pasa a tener componentes para apps Blade/Livewire. Sin cambios de valores para quien ya usa la 0.2.

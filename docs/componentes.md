@@ -48,4 +48,58 @@ Desde la 0.3.0 el paquete registra sus vistas bajo el espacio `dn` (`MeridianoSe
 
 **Acento por empresa:** `Slyn9\Meridiano\AccentPalette::problem($hex)` dice por qué un color no sirve (o `null`); `AccentPalette::from($hex)->css()` devuelve los 7 tokens de acento derivados para claro y oscuro, todos con contraste AA garantizado (lo prueba un barrido de más de 100 colores). Se inyecta en un `<style>` después del CSS de la app.
 
-Los componentes de línea de tiempo, flujo de pasos, accesos rápidos y fila expandible llegan en la fase 3 del plan, con su versión React y Blade.
+## Componentes de la 0.4: línea de tiempo, flujo de pasos, accesos rápidos y fila expandible
+
+Existen en Blade y en React con la misma estructura y las mismas clases, así que se ven igual en las dos apps.
+
+| Componente | Cuándo usarlo | Reglas |
+| --- | --- | --- |
+| **Línea de tiempo** | Historial de un registro: quién hizo qué y cuándo (creado, contabilizado, anulado; cambios de estado). | Lista ordenada (`<ol>` con nombre accesible). Cada evento: título, una línea de fecha · usuario y un detalle opcional (el motivo). El tono del punto (`neutral`, `primary`, `success`, `warning`, `danger`, `info`) acompaña al texto, nunca lo reemplaza. Un evento sin detalle no lleva cuerpo vacío. |
+| **Flujo de pasos** | Un proceso con pasos en orden y un estado por paso: el cierre del mes, el ciclo de vida de una orden. | Cada paso está `done`, `current` o `pending`. El actual lleva `aria-current="step"` y cada paso dice su estado en texto oculto para lectores de pantalla («completado», «paso actual», «pendiente»): el color y el ícono de check no son la única señal. Horizontal desde 640 px, siempre vertical en teléfono o con `vertical`. Un paso puede enlazar a la pantalla donde se resuelve. |
+| **Accesos rápidos** | Un índice de destinos con una línea de descripción cada uno: un hub de reportes, los reportes desde el Inicio. | Toda la fila es el enlace (un solo destino de tabulación). Ícono en un cuadro tenue, título en azul de texto, descripción de una línea. 1, 2 o 3 columnas (desde 768 px). Los destinos que el usuario no puede abrir no se muestran. |
+| **Fila expandible** | Detalle secundario de una fila que no merece otra pantalla ni otra columna. | Un botón propio en la primera celda (no la fila entera, que puede tener su propia acción) con `aria-expanded`, `aria-controls` y un nombre que dice qué abre («Ver conceptos de Ana Ruiz»). Se opera con Enter y Espacio. El detalle es una segunda fila que ocupa todo el ancho; cerrado, queda `hidden`. Clic en el botón no dispara el clic de la fila. |
+
+### Blade
+
+| Componente | Props | Ejemplo |
+| --- | --- | --- |
+| `timeline` · `timeline-item` | `label` · `title`, `meta`, `tone`; slot = detalle | `<x-dn::timeline label="Historial"><x-dn::timeline-item title="Anulado" meta="20/01/2026 · Ana" tone="danger">Motivo: duplicado</x-dn::timeline-item></x-dn::timeline>` |
+| `process-flow` | `label`, `steps` (lista de `['label', 'state', 'meta'?, 'href'?]`), `vertical` | `<x-dn::process-flow label="Estado de la orden" :steps="$steps" :vertical="true" />` |
+| `quick-links` · `quick-link` | `label`, `columns` (1–3) · `href`, `title`, `description`, `icon` | `<x-dn::quick-link :href="route('reports.operational')" title="Reporte Operacional" icon="wrench" description="…" />` |
+| `expandable-row` | `rowKey` (único en la tabla; también `wire:key`), `colspan` (columnas totales, incluida la del botón), `label`, `open`; slot = celdas, slot `detail` | `<x-dn::expandable-row :row-key="'client-'.$client->id" :colspan="5" :label="'Ver detalle de '.$client->name">…<x-slot:detail>…</x-slot:detail></x-dn::expandable-row>` |
+
+La fila expandible genera su propio `<tbody>` (con su estado de Alpine), así que va directamente dentro de `<table>`, una por registro; la tabla agrega una celda de encabezado vacía `<th class="dn-expand-cell">` para la columna del botón. Los atributos sueltos (`x-on:click`, `class`) llegan a la fila principal.
+
+### React (`@meridiano`)
+
+Los componentes React no se publican en npm: los compila el Vite de la app. La app define el alias y carga las recetas:
+
+```js
+// vite.config.js
+resolve: { alias: { '@meridiano': fileURLToPath(new URL('./vendor/slyn9/meridiano/resources/js/react', import.meta.url)) } }
+```
+
+```json
+// tsconfig.json → compilerOptions.paths
+"@meridiano": ["./vendor/slyn9/meridiano/resources/js/react/index.ts"]
+```
+
+```css
+@import '../../vendor/slyn9/meridiano/resources/css/recipes.css';
+```
+
+| Componente | Props |
+| --- | --- |
+| `Timeline` · `TimelineItem` | `label` · `title`, `meta`, `tone`, `children` (detalle) |
+| `ProcessFlow` | `label`, `steps: { key, label, state, meta?, href? }[]`, `vertical`, `linkAs` (componente de enlace, ej. `Link` de Inertia) |
+| `QuickLinkList` · `QuickLink` | `label`, `columns` · `href`, `title`, `description`, `icon` (un nodo, ej. un ícono de lucide-react), `as` (componente de enlace; el resto de props le llega, ej. `prefetch`) |
+| `ExpandableRow` | `colSpan`, `label`, `detail`, `defaultOpen`, `row`/`cell` (los componentes de fila y celda de la tabla de la app; por defecto `tr`/`td`); `children` = celdas. Devuelve dos filas: va dentro del `<tbody>`. |
+| `DnIcon` | `name` (mismos íconos que Blade), `size`, `label` |
+
+```tsx
+import { ProcessFlow } from '@meridiano';
+
+<ProcessFlow vertical label="Cierre del mes" linkAs={Link} steps={steps} />
+```
+
+Blade y React comparten exactamente los mismos íconos (`resources/js/react/icons.ts` lo genera el mismo script que `lucide.php`; una prueba lo verifica).
