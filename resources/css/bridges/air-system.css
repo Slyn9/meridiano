@@ -1,0 +1,101 @@
+/*
+ * Puente Air-System → Meridiano.
+ *
+ * Air-System nombra sus variables a su manera (`--accent`, `--bg-page`,
+ * `--text-primary`…) y las usa en sus clases (`.btn`, `.card`,
+ * `.data-table`…) y en miles de estilos en línea. Este archivo hace que cada
+ * una lea un token `--dn-*`, así toda la app adopta la paleta de Meridiano
+ * sin tocar sus pantallas; las pantallas migradas usan directamente las
+ * recetas `.dn-*`.
+ *
+ * Se importa DESPUÉS de resources/css/ui/global-theme.css (para ganarle a sus
+ * valores) y se declara también en `.dark` para que cada variable se vuelva a
+ * resolver en el elemento que lleva la clase.
+ *
+ * Acento: `--accent` es el azul de TEXTO (enlaces, íconos, bordes);
+ * `--accent-fill` es el RELLENO con texto blanco encima (botón primario,
+ * selección). En oscuro no pueden ser el mismo color y cumplir AA.
+ */
+
+:root,
+.dark {
+    /* Acento */
+    --accent: var(--dn-primary);
+    --accent-fill: var(--dn-primary-fill);
+    --accent-hover: var(--dn-primary-fill-hover);
+    --accent-subtle: var(--dn-primary-subtle);
+    --accent-subtle-hover: color-mix(in srgb, var(--dn-primary-subtle) 80%, var(--dn-primary));
+    --accent-text: var(--dn-primary-strong);
+
+    /* Superficies */
+    --bg-page: var(--dn-canvas);
+    --bg-surface: var(--dn-surface);
+    --bg-surface-raised: var(--dn-neutral-subtle);
+    --bg-overlay: var(--dn-overlay);
+
+    /* Menú lateral: superficie clara (oscura en `.dark`), como el resto del shell. */
+    --sidebar-bg: var(--dn-surface);
+    --sidebar-border: var(--dn-divider);
+    --sidebar-item-color: var(--dn-text-muted);
+    --sidebar-item-hover: var(--dn-neutral-subtle);
+    --sidebar-item-active-bg: var(--dn-primary-subtle);
+    --sidebar-item-active-color: var(--dn-primary-strong);
+    --sidebar-brand-color: var(--dn-text);
+    --sidebar-section-color: var(--dn-text-muted);
+    --sidebar-icon-color: var(--dn-text-muted);
+    --sidebar-icon-active: var(--dn-primary-strong);
+    --sidebar-width: var(--dn-sidebar-width);
+
+    /* Barra superior */
+    --header-bg: var(--dn-shell);
+    --header-border: var(--dn-divider);
+    --header-height: var(--dn-shell-height);
+
+    /* Bordes */
+    --border: var(--dn-divider);
+    --border-strong: var(--dn-control-border);
+    --border-subtle: var(--dn-divider);
+
+    /* Texto. `--text-muted` y `--text-placeholder` pasan a cumplir AA
+       (antes 3,15:1 y 1,97:1 en claro). */
+    --text-primary: var(--dn-text);
+    --text-secondary: var(--dn-text-muted);
+    --text-muted: var(--dn-text-muted);
+    --text-placeholder: var(--dn-text-muted);
+
+    /* Estados */
+    --color-success: var(--dn-success);
+    --color-success-bg: var(--dn-success-subtle);
+    --color-success-text: var(--dn-success-text);
+    --color-warning: var(--dn-warning);
+    --color-warning-bg: var(--dn-warning-subtle);
+    --color-warning-text: var(--dn-warning-text);
+    --color-danger: var(--dn-danger);
+    --color-danger-bg: var(--dn-danger-subtle);
+    --color-danger-text: var(--dn-danger-text);
+    --color-info: var(--dn-info);
+    --color-info-bg: var(--dn-info-subtle);
+    --color-info-text: var(--dn-info-text);
+    --color-neutral-bg: var(--dn-neutral-subtle);
+    --color-neutral-text: var(--dn-text-muted);
+
+    /* Campos */
+    --input-bg: var(--dn-surface);
+    --input-border: var(--dn-control-border);
+    --input-border-focus: var(--dn-focus);
+    --input-ring: color-mix(in srgb, var(--dn-focus) 25%, transparent);
+    --input-text: var(--dn-text);
+    --input-placeholder: var(--dn-text-muted);
+
+    /* Forma y elevación */
+    --radius-sm: var(--dn-radius-control);
+    --radius-md: var(--dn-radius-control);
+    --radius-lg: var(--dn-radius-card);
+    --radius-xl: var(--dn-radius-dialog);
+    --shadow-xs: var(--dn-shadow-card);
+    --shadow-sm: var(--dn-shadow-card);
+    --shadow-md: var(--dn-shadow-popover);
+
+    /* Tipografía */
+    --font-body: var(--dn-font-sans);
+}

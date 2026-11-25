@@ -59,6 +59,8 @@ Cuatro familias (`success`, `warning`, `danger`, `info`), cada una con cuatro to
 | `--dn-radius-card` | Tarjetas |
 | `--dn-radius-dialog` | Diálogos y paneles laterales |
 | `--dn-shadow-card` | Sombra de una tarjeta: mínima en claro, ninguna en oscuro |
+| `--dn-shadow-popover` | Sombra de lo que flota sobre la página: menú desplegable, popover |
+| `--dn-overlay` | Fondo oscurecido detrás de un panel deslizable o un diálogo |
 | `--dn-shell-height` | Alto de la barra superior |
 | `--dn-sidebar-width` / `--dn-sidebar-width-icon` | Ancho del menú lateral, expandido y plegado a íconos |
 | `--dn-tab-indicator` | Grosor de la barra bajo la pestaña activa |
