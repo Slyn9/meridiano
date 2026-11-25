@@ -26,6 +26,8 @@
     --accent-subtle: var(--dn-primary-subtle);
     --accent-subtle-hover: color-mix(in srgb, var(--dn-primary-subtle) 80%, var(--dn-primary));
     --accent-text: var(--dn-primary-strong);
+    --accent-on: var(--dn-on-primary-fill);
+    --accent-border: var(--dn-primary-border);
 
     /* Superficies */
     --bg-page: var(--dn-canvas);
@@ -79,6 +81,26 @@
     --color-neutral-bg: var(--dn-neutral-subtle);
     --color-neutral-text: var(--dn-text-muted);
 
+    /* Texto sobre un relleno sólido de estado, y borde tenue de un bloque de estado */
+    --color-success-on: var(--dn-on-success);
+    --color-warning-on: var(--dn-on-warning);
+    --color-danger-on: var(--dn-on-danger);
+    --color-info-on: var(--dn-on-info);
+    --color-success-border: var(--dn-success-border);
+    --color-warning-border: var(--dn-warning-border);
+    --color-danger-border: var(--dn-danger-border);
+    --color-info-border: var(--dn-info-border);
+
+    /* Categoría violeta (color de una categoría de servicio elegido por el usuario) */
+    --color-purple: var(--dn-violet);
+    --color-purple-bg: var(--dn-violet-subtle);
+    --color-purple-text: var(--dn-violet-text);
+
+    /* Velo sobre fotos y editor de recorte: oscuro en los dos temas */
+    --scrim: var(--dn-scrim);
+    --scrim-strong: var(--dn-scrim-strong);
+    --on-scrim: var(--dn-on-scrim);
+
     /* Campos */
     --input-bg: var(--dn-surface);
     --input-border: var(--dn-control-border);
@@ -95,6 +117,7 @@
     --shadow-xs: var(--dn-shadow-card);
     --shadow-sm: var(--dn-shadow-card);
     --shadow-md: var(--dn-shadow-popover);
+    --shadow-modal: var(--dn-shadow-dialog);
 
     /* Tipografía */
     --font-body: var(--dn-font-sans);

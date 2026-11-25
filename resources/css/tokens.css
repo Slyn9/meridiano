@@ -64,6 +64,20 @@
     --dn-info-subtle: #E0F2F7;
     --dn-info-text: #0A5970;
 
+    /* Bordes tenues de un bloque de estado (alerta, aviso, ícono en cuadro). Derivados
+       del color de estado: nunca se usan para texto. */
+    --dn-primary-border: color-mix(in srgb, var(--dn-primary) 25%, transparent);
+    --dn-success-border: color-mix(in srgb, var(--dn-success) 30%, transparent);
+    --dn-warning-border: color-mix(in srgb, var(--dn-warning) 45%, transparent);
+    --dn-danger-border: color-mix(in srgb, var(--dn-danger) 25%, transparent);
+    --dn-info-border: color-mix(in srgb, var(--dn-info) 25%, transparent);
+
+    /* Categoría adicional: solo para etiquetas que el usuario elige (una categoría de
+       servicio en un calendario), nunca para un estado ni como segundo acento. */
+    --dn-violet: #6D28D9;
+    --dn-violet-subtle: #EFEAFE;
+    --dn-violet-text: #5B21B6;
+
     /* Paleta categórica de gráficos */
     --dn-chart-1: hsl(220, 85.8%, 58.6%);
     --dn-chart-2: hsl(173, 80.4%, 40%);
@@ -77,7 +91,15 @@
     --dn-radius-dialog: 1rem;
     --dn-shadow-card: 0 1px 2px 0 rgb(24 33 47 / 0.06), 0 1px 3px 0 rgb(24 33 47 / 0.04);
     --dn-shadow-popover: 0 4px 12px 0 rgb(24 33 47 / 0.10), 0 2px 4px 0 rgb(24 33 47 / 0.06);
+    --dn-shadow-dialog: 0 20px 48px 0 rgb(24 33 47 / 0.18), 0 4px 12px 0 rgb(24 33 47 / 0.08);
     --dn-overlay: rgb(16 20 27 / 0.45);
+
+    /* Velo sobre fotos (`scrim`) y fondo de un editor de imagen a pantalla completa
+       (`scrim-strong`): oscuros en los dos temas, con texto blanco encima (≥ 4,5:1 aun
+       sobre una foto blanca). */
+    --dn-scrim: rgb(10 13 18 / 0.62);
+    --dn-scrim-strong: rgb(10 13 18 / 0.9);
+    --dn-on-scrim: #FFFFFF;
 
     /* Medidas del shell */
     --dn-shell-height: 3.5rem;
@@ -131,6 +153,18 @@
     --dn-info-subtle: #0F2E38;
     --dn-info-text: #7FD3EA;
 
+    /* Se vuelven a declarar para que se resuelvan con los colores oscuros también
+       cuando `.dn-theme-dark` va en una zona y no en <html>. */
+    --dn-primary-border: color-mix(in srgb, var(--dn-primary) 25%, transparent);
+    --dn-success-border: color-mix(in srgb, var(--dn-success) 30%, transparent);
+    --dn-warning-border: color-mix(in srgb, var(--dn-warning) 45%, transparent);
+    --dn-danger-border: color-mix(in srgb, var(--dn-danger) 25%, transparent);
+    --dn-info-border: color-mix(in srgb, var(--dn-info) 25%, transparent);
+
+    --dn-violet: #A78BFA;
+    --dn-violet-subtle: #2A2145;
+    --dn-violet-text: #C9BBFD;
+
     --dn-chart-1: hsl(220, 85.8%, 58.6%);
     --dn-chart-2: hsl(173, 75.5%, 32%);
     --dn-chart-3: hsl(258, 89.5%, 66.3%);
@@ -139,5 +173,6 @@
 
     --dn-shadow-card: 0 0 #0000;
     --dn-shadow-popover: 0 8px 24px 0 rgb(0 0 0 / 0.45), 0 2px 6px 0 rgb(0 0 0 / 0.30);
+    --dn-shadow-dialog: 0 20px 48px 0 rgb(0 0 0 / 0.55), 0 4px 12px 0 rgb(0 0 0 / 0.35);
     --dn-overlay: rgb(0 0 0 / 0.6);
 }

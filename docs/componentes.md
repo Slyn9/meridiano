@@ -41,6 +41,7 @@ Desde la 0.3.0 el paquete registra sus vistas bajo el espacio `dn` (`MeridianoSe
 | `sort-header` | `column`, `sortBy`, `sortDir`, `thClass` | `<x-dn::sort-header column="name" :sort-by="$sortBy" :sort-dir="$sortDir" wire:click="sort('name')">Cliente</x-dn::sort-header>` |
 | `detail-list` · `detail-item` | `stacked` · `label` | `<x-dn::detail-item label="Correo">…</x-dn::detail-item>` |
 | `empty-state` | `title`, `hint`, `icon`; slot = acción | `<x-dn::empty-state title="Sin clientes" />` |
+| `tokens` | — | `<x-dn::tokens />` en el `<head>` de una página que no carga el CSS de la app (página de error, página pública independiente): incrusta los tokens en un `<style>` |
 
 **Paginación de Livewire:** `{{ $items->links('dn::pagination.livewire') }}` dentro del componente; usa `previousPage`/`nextPage`/`gotoPage` y siempre muestra el conteo.
 

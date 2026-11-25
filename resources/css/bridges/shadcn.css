@@ -64,6 +64,7 @@
     --border: var(--dn-divider);
     --input: var(--dn-control-border);
     --ring: var(--dn-focus);
+    --overlay: var(--dn-overlay);
 
     --chart-1: var(--dn-chart-1);
     --chart-2: var(--dn-chart-2);

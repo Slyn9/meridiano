@@ -1,5 +1,9 @@
 # Actualizar entre versiones
 
+## De 0.4 a 0.5
+
+Sin cambios de valores ni de nombres: solo se agregan tokens, variables de los puentes y `<x-dn::tokens />`. Una app que use shadcn puede mapear `--color-overlay: var(--overlay)` en su `@theme` para el fondo de diálogos y paneles.
+
 ## De 0.3 a 0.4
 
 Sin cambios de valores ni de nombres: se agregan componentes. Una app Blade no necesita nada. Una app React que quiera usar los componentes React agrega el alias `@meridiano` en `vite.config.js` y `tsconfig.json` e importa `recipes.css` (ver `docs/componentes.md`). Las recetas no van en una capa de Tailwind: pisan una utilidad aplicada al mismo elemento.

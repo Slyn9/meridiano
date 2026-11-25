@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.5.0 — 2026-11-25
+
+Lo que faltaba para que ContaPE y Air-System no tengan ningún color fijo (Fase 4). Sin cambios de valores existentes.
+
+- Tokens nuevos: bordes tenues de estado y de acento (`--dn-<estado>-border`, `--dn-primary-border`), sombra de diálogo (`--dn-shadow-dialog`), velo sobre fotos (`--dn-scrim`, `--dn-scrim-strong`, `--dn-on-scrim`) y una categoría violeta para etiquetas que elige el usuario (`--dn-violet`, `-subtle`, `-text`). La prueba de contraste suma sus pares y el velo compuesto sobre una foto blanca (67 pruebas).
+- Puente shadcn: `--overlay`. Puente de Air-System: `--accent-on`, `--accent-border`, `--color-<estado>-on`, `--color-<estado>-border`, `--color-purple(-bg, -text)`, `--scrim(-strong)`, `--on-scrim` y `--shadow-modal`.
+- `<x-dn::tokens />` y `Slyn9\Meridiano\Tokens::css()`: los tokens incrustados para páginas que no cargan el CSS compilado (páginas de error, páginas públicas).
+
 ## 0.4.0 — 2026-11-25
 
 Cuatro componentes nuevos, en Blade y en React, y la primera vez que una app React usa componentes del paquete. Sin cambios de valores.

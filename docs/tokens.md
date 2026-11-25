@@ -46,6 +46,15 @@ Cuatro familias (`success`, `warning`, `danger`, `info`), cada una con cuatro to
 | `--dn-on-<estado>` | Texto sobre el relleno sólido |
 | `--dn-<estado>-subtle` | Fondo tenue (insignia, alerta) |
 | `--dn-<estado>-text` | Texto de color sobre el fondo tenue o sobre la superficie |
+| `--dn-<estado>-border` / `--dn-primary-border` | Borde tenue de un bloque de estado o de acento (alerta, aviso, ícono en cuadro, chip). Derivado del color; nunca para texto |
+
+Un color de estado usado **como texto** siempre es su variante `-text`: el relleno de advertencia (`--dn-warning`, amarillo) no llega a 2:1 sobre blanco.
+
+## Categoría adicional
+
+| Token | Uso |
+| --- | --- |
+| `--dn-violet` / `--dn-violet-subtle` / `--dn-violet-text` | Solo para una etiqueta que el usuario elige (el color de una categoría de servicio en un calendario): punto, fondo tenue y texto. Nunca para un estado ni como segundo acento |
 
 ## Gráficos
 
@@ -60,7 +69,10 @@ Cuatro familias (`success`, `warning`, `danger`, `info`), cada una con cuatro to
 | `--dn-radius-dialog` | Diálogos y paneles laterales |
 | `--dn-shadow-card` | Sombra de una tarjeta: mínima en claro, ninguna en oscuro |
 | `--dn-shadow-popover` | Sombra de lo que flota sobre la página: menú desplegable, popover |
+| `--dn-shadow-dialog` | Sombra de un diálogo o una hoja inferior |
 | `--dn-overlay` | Fondo oscurecido detrás de un panel deslizable o un diálogo |
+| `--dn-scrim` / `--dn-on-scrim` | Velo oscuro sobre una foto (pie de foto, botón sobre una miniatura) y su texto: oscuro en los dos temas, ≥ 4,5:1 aun sobre una foto blanca |
+| `--dn-scrim-strong` | Fondo de un editor de imagen a pantalla completa (recorte), oscuro en los dos temas |
 | `--dn-shell-height` | Alto de la barra superior |
 | `--dn-sidebar-width` / `--dn-sidebar-width-icon` | Ancho del menú lateral, expandido y plegado a íconos |
 | `--dn-tab-indicator` | Grosor de la barra bajo la pestaña activa |

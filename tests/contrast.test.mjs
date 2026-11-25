@@ -69,6 +69,9 @@ const pairs = [
     ['on-info', 'info', 4.5, 'insignia sólida informativa'],
     ['info-text', 'info-subtle', 4.5, 'insignia tenue informativa'],
     ['info-text', 'surface', 4.5, 'texto informativo'],
+    ['violet-text', 'violet-subtle', 4.5, 'etiqueta de categoría violeta'],
+    ['violet-text', 'surface', 4.5, 'texto de categoría violeta'],
+    ['violet', 'surface', 3, 'punto de categoría violeta'],
     ['control-border', 'surface', 3, 'borde de un campo'],
     ['control-border', 'canvas', 3, 'borde de un campo sobre el fondo'],
     ['focus', 'surface', 3, 'anillo de foco'],
@@ -95,3 +98,13 @@ for (const [theme, tokens] of Object.entries(themes)) {
         });
     }
 }
+
+// El velo es translúcido: se compone sobre el peor caso, una foto blanca.
+test('velo: texto blanco sobre el velo encima de una foto blanca ≥ 4.5:1', () => {
+    const scrim = light.scrim.match(/^rgb\((\d+) (\d+) (\d+) \/ ([\d.]+)\)$/);
+    assert.ok(scrim, `velo no reconocido: ${light.scrim}`);
+    const alpha = Number(scrim[4]);
+    const hex = [1, 2, 3].map((i) => Math.round(Number(scrim[i]) * alpha + 255 * (1 - alpha)).toString(16).padStart(2, '0')).join('');
+    const measured = ratio(light['on-scrim'], `#${hex}`);
+    assert.ok(measured >= 4.5, `mide ${measured.toFixed(2)}:1`);
+});
