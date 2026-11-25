@@ -1,0 +1,9 @@
+{
+    "name": "meridiano",
+    "private": true,
+    "description": "Solo para correr las pruebas del paquete; no se publica en npm.",
+    "type": "module",
+    "scripts": {
+        "test": "node --test \"tests/*.test.mjs\""
+    }
+}

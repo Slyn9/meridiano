@@ -1,0 +1,77 @@
+/*
+ * Puente shadcn/ui → Meridiano.
+ *
+ * Una app hecha con shadcn/ui (ContaPE) conserva los nombres de sus
+ * variables (`--background`, `--primary`…) y sus clases de Tailwind
+ * (`bg-background`, `text-primary`…); este archivo hace que cada una lea un
+ * token `--dn-*`. Así la app cambia de aspecto cuando cambian los tokens, sin
+ * tocar sus pantallas.
+ *
+ * Se importa DESPUÉS de tokens.css. Se declara también en `.dark` para que
+ * cada variable se vuelva a resolver en el elemento que lleva la clase.
+ */
+
+:root,
+.dark {
+    --background: var(--dn-canvas);
+    --foreground: var(--dn-text);
+
+    --card: var(--dn-surface);
+    --card-foreground: var(--dn-text);
+
+    --popover: var(--dn-surface);
+    --popover-foreground: var(--dn-text);
+
+    --primary: var(--dn-primary-fill);
+    --primary-foreground: var(--dn-on-primary-fill);
+
+    --secondary: var(--dn-neutral-subtle);
+    --secondary-foreground: var(--dn-text);
+
+    --muted: var(--dn-neutral-subtle);
+    --muted-foreground: var(--dn-text-muted);
+
+    --accent: var(--dn-primary-subtle);
+    --accent-foreground: var(--dn-text);
+
+    --destructive: var(--dn-danger);
+    --destructive-foreground: var(--dn-on-danger);
+    --destructive-subtle: var(--dn-danger-subtle);
+    --destructive-subtle-foreground: var(--dn-danger-text);
+
+    --success: var(--dn-success);
+    --success-foreground: var(--dn-on-success);
+    --success-subtle: var(--dn-success-subtle);
+    --success-subtle-foreground: var(--dn-success-text);
+
+    --warning: var(--dn-warning);
+    --warning-foreground: var(--dn-on-warning);
+    --warning-subtle: var(--dn-warning-subtle);
+    --warning-subtle-foreground: var(--dn-warning-text);
+
+    --info: var(--dn-info);
+    --info-foreground: var(--dn-on-info);
+    --info-subtle: var(--dn-info-subtle);
+    --info-subtle-foreground: var(--dn-info-text);
+
+    --border: var(--dn-divider);
+    --input: var(--dn-control-border);
+    --ring: var(--dn-focus);
+
+    --chart-1: var(--dn-chart-1);
+    --chart-2: var(--dn-chart-2);
+    --chart-3: var(--dn-chart-3);
+    --chart-4: var(--dn-chart-4);
+    --chart-5: var(--dn-chart-5);
+
+    --radius: var(--dn-radius-control);
+
+    --sidebar-background: var(--dn-surface);
+    --sidebar-foreground: var(--dn-text-muted);
+    --sidebar-primary: var(--dn-primary-fill);
+    --sidebar-primary-foreground: var(--dn-on-primary-fill);
+    --sidebar-accent: var(--dn-primary-subtle);
+    --sidebar-accent-foreground: var(--dn-primary-strong);
+    --sidebar-border: var(--dn-divider);
+    --sidebar-ring: var(--dn-focus);
+}

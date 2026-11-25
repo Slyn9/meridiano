@@ -1,0 +1,130 @@
+/*
+ * Meridiano — tokens de diseño de DN Systems.
+ *
+ * Única fuente de valores visuales para ContaPE, Air-System y Farmacy.
+ * Las apps nunca escriben estos valores: los consumen por nombre, directo
+ * (`var(--dn-surface)`) o a través de un puente (`bridges/`).
+ *
+ * Tema claro en `:root`, oscuro en `.dark` (la clase va en <html>).
+ * Cada par de texto/fondo documentado en docs/tokens.md tiene su prueba de
+ * contraste en tests/contrast.test.mjs: un cambio de valor que baje de AA
+ * hace fallar `npm test`.
+ *
+ * Versión 0.1.0: los valores son los que ContaPE usaba antes de adoptar el
+ * paquete, para que adoptarlo no cambie nada visible. La paleta propia de
+ * Meridiano llega en 0.2.0.
+ */
+
+:root {
+    /* Superficies */
+    --dn-canvas: hsl(210, 40%, 98%);
+    --dn-surface: hsl(0, 0%, 100%);
+    --dn-shell: hsl(210, 40%, 98%);
+    --dn-neutral-subtle: hsl(210, 40%, 96.1%);
+    --dn-divider: hsl(214, 31.8%, 91.4%);
+    --dn-control-border: hsl(215, 20.2%, 65.1%);
+
+    /* Texto */
+    --dn-text: hsl(221, 39.3%, 11%);
+    --dn-text-muted: hsl(219, 15.7%, 34.9%);
+
+    /* Acento. `primary` es el azul de texto (enlaces, pestaña activa);
+       `primary-fill` es el relleno de botones, con `on-primary-fill` encima. */
+    --dn-primary: hsl(220, 72.4%, 49.8%);
+    --dn-primary-fill: hsl(220, 72.4%, 49.8%);
+    --dn-primary-fill-hover: hsl(220, 72.4%, 44.8%);
+    --dn-on-primary-fill: hsl(0, 0%, 100%);
+    --dn-primary-subtle: hsl(221, 100%, 96.9%);
+    --dn-primary-strong: hsl(219, 73.4%, 39.8%);
+    --dn-focus: hsl(220, 72.4%, 49.8%);
+
+    /* Estados: sólido + texto encima, tenue + texto encima */
+    --dn-success: hsl(142, 71.8%, 29.2%);
+    --dn-on-success: hsl(0, 0%, 100%);
+    --dn-success-subtle: hsl(141, 84.2%, 92.5%);
+    --dn-success-text: hsl(142, 71.8%, 29.2%);
+
+    --dn-warning: hsl(43, 96.4%, 56.3%);
+    --dn-on-warning: hsl(221, 39.3%, 11%);
+    --dn-warning-subtle: hsl(48, 96.5%, 88.8%);
+    --dn-warning-text: hsl(26, 90.5%, 37.1%);
+
+    --dn-danger: hsl(0, 72.2%, 50.6%);
+    --dn-on-danger: hsl(0, 0%, 100%);
+    --dn-danger-subtle: hsl(0, 93.3%, 94.1%);
+    --dn-danger-text: hsl(0, 73.7%, 41.8%);
+
+    --dn-info: hsl(202, 96.1%, 30.2%);
+    --dn-on-info: hsl(0, 0%, 100%);
+    --dn-info-subtle: hsl(204, 93.8%, 93.7%);
+    --dn-info-text: hsl(202, 96.1%, 30.2%);
+
+    /* Paleta categórica de gráficos */
+    --dn-chart-1: hsl(220, 85.8%, 58.6%);
+    --dn-chart-2: hsl(173, 80.4%, 40%);
+    --dn-chart-3: hsl(258, 89.5%, 66.3%);
+    --dn-chart-4: hsl(25, 95%, 53.1%);
+    --dn-chart-5: hsl(330, 81.2%, 60.4%);
+
+    /* Forma */
+    --dn-radius-control: 0.5rem;
+    --dn-radius-card: 0.5rem;
+    --dn-radius-dialog: 0.75rem;
+    --dn-shadow-card: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+
+    /* Medidas del shell */
+    --dn-shell-height: 3.5rem;
+    --dn-sidebar-width: 16rem;
+    --dn-sidebar-width-icon: 3rem;
+    --dn-tab-indicator: 2px;
+
+    /* Tipografía (las apps cargan las fuentes) */
+    --dn-font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --dn-font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+}
+
+.dark {
+    --dn-canvas: hsl(223, 48.8%, 8.4%);
+    --dn-surface: hsl(221, 43.8%, 12.5%);
+    --dn-shell: hsl(223, 48.8%, 8.4%);
+    --dn-neutral-subtle: hsl(221, 43.8%, 15%);
+    --dn-divider: hsl(219, 29.8%, 22.4%);
+    --dn-control-border: hsl(219, 27.1%, 27.5%);
+
+    --dn-text: hsl(210, 40%, 98%);
+    --dn-text-muted: hsl(215, 20.2%, 65.1%);
+
+    --dn-primary: hsl(220, 72.4%, 49.8%);
+    --dn-primary-fill: hsl(220, 72.4%, 49.8%);
+    --dn-primary-fill-hover: hsl(220, 72.4%, 44.8%);
+    --dn-on-primary-fill: hsl(0, 0%, 100%);
+    --dn-primary-subtle: hsl(219, 29.8%, 22.4%);
+    --dn-primary-strong: hsl(210, 40%, 98%);
+    --dn-focus: hsl(220, 85.8%, 58.6%);
+
+    --dn-success: hsl(142, 71.8%, 29.2%);
+    --dn-on-success: hsl(0, 0%, 100%);
+    --dn-success-subtle: hsl(142, 40%, 18%);
+    --dn-success-text: hsl(142, 70.6%, 70%);
+
+    --dn-warning: hsl(43, 96.4%, 56.3%);
+    --dn-on-warning: hsl(221, 39.3%, 11%);
+    --dn-warning-subtle: hsl(43, 50%, 20%);
+    --dn-warning-text: hsl(43, 96.4%, 75%);
+
+    --dn-danger: hsl(0, 72.2%, 50.6%);
+    --dn-on-danger: hsl(0, 0%, 100%);
+    --dn-danger-subtle: hsl(0, 40%, 20%);
+    --dn-danger-text: hsl(0, 84.2%, 80%);
+
+    --dn-info: hsl(199, 88.7%, 48.4%);
+    --dn-on-info: hsl(221, 39.3%, 11%);
+    --dn-info-subtle: hsl(202, 50%, 20%);
+    --dn-info-text: hsl(199, 88.7%, 75%);
+
+    --dn-chart-1: hsl(220, 85.8%, 58.6%);
+    --dn-chart-2: hsl(173, 75.5%, 32%);
+    --dn-chart-3: hsl(258, 89.5%, 66.3%);
+    --dn-chart-4: hsl(25, 90.4%, 44.9%);
+    --dn-chart-5: hsl(330, 81.2%, 60.4%);
+}

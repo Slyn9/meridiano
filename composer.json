@@ -1,0 +1,17 @@
+{
+    "name": "slyn9/meridiano",
+    "description": "Meridiano, el sistema de diseño de DN Systems: tokens, recetas CSS y componentes para las apps Laravel de DN Systems (React/Inertia y Blade/Livewire).",
+    "keywords": ["laravel", "design-system", "tokens", "css", "blade", "react", "tailwindcss"],
+    "license": "MIT",
+    "type": "library",
+    "require": {
+        "php": "^8.2"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "0.x-dev"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
