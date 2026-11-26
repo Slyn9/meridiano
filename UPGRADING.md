@@ -1,5 +1,9 @@
 # Actualizar entre versiones
 
+## De 0.5 a 0.6
+
+Sin cambios de valores ni de nombres: solo se agrega `bridges/bootstrap.css`. ContaPE y Air-System no necesitan nada.
+
 ## De 0.4 a 0.5
 
 Sin cambios de valores ni de nombres: solo se agregan tokens, variables de los puentes y `<x-dn::tokens />`. Una app que use shadcn puede mapear `--color-overlay: var(--overlay)` en su `@theme` para el fondo de diálogos y paneles.

@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.6.0 — 2026-11-25
+
+Puente para apps con Bootstrap 5.3 (Farmacy, fase 5). Sin cambios de valores ni de nombres.
+
+- `resources/css/bridges/bootstrap.css`: las variables `--bs-*` (roles, superficies, texto, bordes, enlaces, validación, foco, radios, sombras, tipografía) leen los tokens, y se vuelven a declarar los colores que Bootstrap compila como literales (botones sólidos y de contorno, foco de campos, casilla marcada, menú desplegable, pestañas, paginación, lista, barra de progreso, acordeón, tablas de color, alertas) y sus utilidades de color con `color-mix()` en vez de tripletas RGB, respetando las de opacidad. Las tripletas `--bs-*-rgb` quedan para usos heredados y reflejan los tokens.
+- `tests/bridges.test.mjs`: cada token que usa un puente existe; las tripletas coinciden con los tokens en claro y en oscuro; cada botón de Bootstrap y su hover miden al menos 4,5:1 en los dos temas (encontró que oscurecer el relleno en hover bajaba de AA en oscuro, donde el texto encima es oscuro: ahora el hover va hacia el lado opuesto al texto). Las funciones de contraste pasan a `tests/color.mjs`.
+
 ## 0.5.0 — 2026-11-25
 
 Lo que faltaba para que ContaPE y Air-System no tengan ningún color fijo (Fase 4). Sin cambios de valores existentes.
