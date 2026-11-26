@@ -13,7 +13,7 @@ El sistema de diseño de DN Systems. Una sola fuente de colores, tipografía, ra
 | `resources/css/recipes.css` | Clases `.dn-*`: la apariencia de cada componente, en CSS plano (sirve con o sin Tailwind). | Apps Blade |
 | `resources/views/components/` | Componentes Blade `<x-dn::…>` y la paginación de Livewire `dn::pagination.livewire`. | Apps Blade/Livewire |
 | `resources/js/react/` | Componentes React (línea de tiempo, flujo de pasos, accesos rápidos, fila expandible, ícono), compilados por el Vite de la app vía el alias `@meridiano`. | Apps React |
-| `resources/icons/` | Íconos lucide incluidos (`<x-dn::icon>`, `<DnIcon>`), con su licencia ISC en `licenses/`. | Todas las apps |
+| `resources/icons/` | Íconos lucide incluidos (`<x-dn::icon>`, `<DnIcon>`, `dnIcon()` en `resources/js/dn-icon.js` para el JS de apps Blade), con su licencia ISC en `licenses/`. | Todas las apps |
 | `src/AccentPalette.php` | Deriva y valida contra WCAG AA la paleta de acento de una empresa a partir de un solo color. | Apps con tema por empresa |
 | `docs/` | Documentación del sistema, en español: fundamentos, tokens, shell, componentes, tablas y gobernanza. | Quien diseña o programa una pantalla |
 
@@ -30,7 +30,7 @@ El paquete se sirve desde su repositorio de GitHub (no se publica en Packagist n
 ```
 
 ```bash
-composer require slyn9/meridiano:^0.6
+composer require slyn9/meridiano:^0.7
 ```
 
 En el CSS de entrada de la app (Vite), antes de cualquier regla propia:

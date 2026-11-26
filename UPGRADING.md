@@ -1,5 +1,9 @@
 # Actualizar entre versiones
 
+## De 0.6 a 0.7
+
+Sin cambios de valores ni de nombres: solo se agregan íconos y `dn-icon.js`. Una app React que importe `DnIcon` incluye la lista completa de íconos en su bundle (crece con cada ícono nuevo).
+
 ## De 0.5 a 0.6
 
 Sin cambios de valores ni de nombres: solo se agrega `bridges/bootstrap.css`. ContaPE y Air-System no necesitan nada.

@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.7.0 — 2026-11-25
+
+Íconos para Farmacy (fase 5). Sin cambios de valores ni de nombres.
+
+- 138 íconos lucide nuevos (210 en total): los que reemplazan a los de Font Awesome que usa Farmacy, verificados uno por uno contra lucide-react 0.475.0.
+- `resources/js/dn-icon.js`: `dnIcon()` y `hasDnIcon()` para el JS de una app Blade que arma marcado; el mismo SVG que `<x-dn::icon>` (prueba `tests/dn-icon.test.mjs`).
+
 ## 0.6.0 — 2026-11-25
 
 Puente para apps con Bootstrap 5.3 (Farmacy, fase 5). Sin cambios de valores ni de nombres.

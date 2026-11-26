@@ -47,6 +47,8 @@ Desde la 0.3.0 el paquete registra sus vistas bajo el espacio `dn` (`MeridianoSe
 
 **Íconos:** solo los listados en `resources/icons/icons.txt` (trazos de lucide, licencia ISC en `licenses/`). Un nombre desconocido lanza una excepción a propósito. Para sumar uno: agregarlo a `icons.txt` y correr `node scripts/build-icons.mjs <ruta a node_modules/lucide-react>`.
 
+**Íconos desde JavaScript (apps Blade):** el JS que arma marcado (columnas de DataTables, contenido de SweetAlert) usa `dnIcon(name, { size, className, label })` de `resources/js/dn-icon.js`, que devuelve el mismo SVG que `<x-dn::icon>` y lee la misma lista (`resources/js/react/icons.ts`, resuelta por Vite). Ejemplo: `import { dnIcon } from '../../vendor/slyn9/meridiano/resources/js/dn-icon.js'`.
+
 **Acento por empresa:** `Slyn9\Meridiano\AccentPalette::problem($hex)` dice por qué un color no sirve (o `null`); `AccentPalette::from($hex)->css()` devuelve los 7 tokens de acento derivados para claro y oscuro, todos con contraste AA garantizado (lo prueba un barrido de más de 100 colores). Se inyecta en un `<style>` después del CSS de la app.
 
 ## Componentes de la 0.4: línea de tiempo, flujo de pasos, accesos rápidos y fila expandible
