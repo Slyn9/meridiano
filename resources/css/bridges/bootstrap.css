@@ -202,7 +202,7 @@ body {
 .text-body-emphasis { color: var(--dn-text) !important; }
 .text-body-secondary, .text-body-tertiary, .text-muted { color: var(--dn-text-muted) !important; }
 .text-black { color: var(--dn-text) !important; }
-.bg-body, .bg-white { background-color: var(--dn-surface) !important; }
+.bg-body, .bg-white { background-color: color-mix(in srgb, var(--dn-surface) calc(var(--bs-bg-opacity, 1) * 100%), transparent) !important; }
 .bg-body-secondary, .bg-body-tertiary { background-color: var(--dn-neutral-subtle) !important; }
 .border { border-color: var(--dn-divider); }
 

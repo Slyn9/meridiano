@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.7.1 — 2026-11-25
+
+- Puente Bootstrap: `.bg-white` y `.bg-body` respetan `bg-opacity` (antes pintaban la superficie opaca: un cuadro translúcido sobre una cabecera de color quedaba sólido y su ícono blanco, invisible). Encontrado al migrar las pantallas de Farmacy.
+
 ## 0.7.0 — 2026-11-25
 
 Íconos para Farmacy (fase 5). Sin cambios de valores ni de nombres.
